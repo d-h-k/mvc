@@ -23,6 +23,5 @@ public class HelloServlet extends HttpServlet {
         res.setCharacterEncoding("utf-8");
         res.getWriter().write("hello MVC :" + username);
 
-        super.service(req, res);
     }
 }
