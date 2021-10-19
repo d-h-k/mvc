@@ -1,0 +1,5 @@
+### 파라미터 전송합니다
+GET http://localhost:8080/request-param?username=hello&age=2021
+
+### 같은이름 파라미터를 전송합니다
+GET http://localhost:8080/request-param?username=hello&age=2021&username=korea

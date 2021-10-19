@@ -1,0 +1,12 @@
+### Post Html Form - 정적리소스를 요청하므로 HTML내용이 리턴된다
+GET http://localhost:8080/hello-form.html
+
+### Send From
+GET http://localhost:8080/request-param
+
+{
+    이부분 어떻게 해야하는지 모름..
+    username: <input type="text" name="username" />
+    age: <input type="text" name="age" />
+}
+

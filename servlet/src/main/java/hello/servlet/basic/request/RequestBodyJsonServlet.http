@@ -1,0 +1,8 @@
+### Json 타입으로 전송한다
+POST http://localhost:8080/request-body-json
+Content-Type: application/json
+
+{
+  "username" : "hello",
+  "age" : 12314
+}
