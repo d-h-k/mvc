@@ -1,0 +1,5 @@
+### jsp 페이지로 post요청을 데이터와 함께 보낸다
+POST http://localhost:8080/jsp/members/save.jsp
+Content-Type: application/x-www-form-urlencoded
+
+username=hello&age=2021
