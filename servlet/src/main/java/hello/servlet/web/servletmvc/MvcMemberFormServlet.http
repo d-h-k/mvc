@@ -1,0 +1,2 @@
+### 회원을 생성(저장)하는 Form 이 있는 페이지를 mvc 패턴으로 사용자에게 출력
+GET http://localhost:8080/servlet-mvc/members/new-form

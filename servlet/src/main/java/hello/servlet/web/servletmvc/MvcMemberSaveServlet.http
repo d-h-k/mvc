@@ -1,0 +1,12 @@
+### 1번회원 만들기
+POST http://localhost:8080/servlet-mvc/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=dongdongJu&age=142857
+
+
+### 2번 회원 만들기
+POST http://localhost:8080/servlet-mvc/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=Chicken&age=3141592
