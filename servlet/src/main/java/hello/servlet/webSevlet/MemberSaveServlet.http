@@ -1,0 +1,13 @@
+### 데이터가 전송되고 저장결과를 확인할 수 있다
+POST http://localhost:8080/servlet/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=hello&age=2021
+
+
+### 2번 인물
+POST http://localhost:8080/servlet/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=spring&age=21
+

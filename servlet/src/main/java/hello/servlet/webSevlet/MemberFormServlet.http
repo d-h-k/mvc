@@ -1,0 +1,2 @@
+### 요청 보내기
+GET http://localhost:8080/servlet/members/new-form

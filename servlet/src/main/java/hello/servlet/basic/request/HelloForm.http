@@ -5,7 +5,6 @@ GET http://localhost:8080/hello-form.html
 POST http://localhost:8080/request-param
 Content-Type: application/x-www-form-urlencoded
 
-{
-    username=hello&age=2021&username=korea
-}
+username=hello&age=2021&username=korea
+
 
