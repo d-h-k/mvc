@@ -26,7 +26,9 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	implementation 'javax.servlet:jstil'
+	//implementation 'javax.servlet:jstil'
+	// https://mvnrepository.com/artifact/javax.servlet/jstl
+	implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
 }
 
 test {
