@@ -1,0 +1,27 @@
+### 등록폼 페이지를 가져온다
+GET http://localhost:8080/front-controller/v2/members/new-form
+
+### 데이터를 등록하는 POST 요청을 보낸다  - 1
+POST http://localhost:8080/front-controller/v2/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=hello&age=2021
+
+
+### 데이터를 등록하는 POST 요청을 보낸다  - 2
+POST http://localhost:8080/front-controller/v2/members/save
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+
+username=F22RAPTOR&age=22
+
+
+### 데이터를 등록하는 POST 요청을 보낸다 - 3
+POST http://localhost:8080/front-controller/v2/members/save
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+Accept-Charset: utf-8
+
+username=noHangul&age=142857
+
+
+### 데이터의 목록을 조회한다
+GET http://localhost:8080/front-controller/v2/members
