@@ -15,7 +15,3 @@
 <a href="/index.html">메인으로</a>
 </body>
 </html>
-
-<!---
-@todo : 한글깨지는 문제 있음
---->
