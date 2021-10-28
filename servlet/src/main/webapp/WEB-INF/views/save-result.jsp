@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,6 @@
 </head>
 <body>
 <a href="/index.html">메인으로</a>
-<p> hangul Lang is broken sorry... T.T</p>
-여기는 UTF-8 해줬는데 왜 깨지는겨
 <ul>
     <li>id=${member.id}</li>
     <li>username=${member.username}</li>
