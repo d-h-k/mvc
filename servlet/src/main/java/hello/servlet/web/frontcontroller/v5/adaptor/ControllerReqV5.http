@@ -1,26 +1,63 @@
-### 폼 요청
+### 폼 요청 v3어댑터 (v3)
 GET http://localhost:8080/front-controller/v5/v3/members/new-form
 
-### 데이터 등록 - 1
+
+### 데이터 등록 - 1 (v3)
 POST http://localhost:8080/front-controller/v5/v3/members/save
 Content-Type: application/x-www-form-urlencoded
 
 username=hello&age=2021
 
 
-### 데이터 등록 - 2
+### 데이터 등록 - 2 (v3)
 POST http://localhost:8080/front-controller/v5/v3/members/save
 Content-Type: application/x-www-form-urlencoded
 
 username=F22RAPTOR&age=22
 
 
-### 데이터 등록 - 3
+### 데이터 등록 - 3 (v3)
 POST http://localhost:8080/front-controller/v5/v3/members/save
 Content-Type: application/x-www-form-urlencoded
 
 username=noHangul&age=142857
 
 
-### 등록한 모든 회원을 조회
+### 등록한 모든 회원을 조회 (v3)
 GET http://localhost:8080/front-controller/v5/v3/members
+
+
+
+
+
+// -------------------------
+
+
+### 폼 요청 v4어댑터 (v4)
+GET http://localhost:8080/front-controller/v5/v4/members/new-form
+
+
+### 데이터 등록 - 1 (v4)
+POST http://localhost:8080/front-controller/v5/v4/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=hello&age=2021
+
+
+### 데이터 등록 - 2 (v4)
+POST http://localhost:8080/front-controller/v5/v4/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=F22RAPTOR&age=22
+
+
+### 데이터 등록 - 3 (v4)
+POST http://localhost:8080/front-controller/v5/v4/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=noHangul&age=142857
+
+
+### 등록한 모든 회원을 조회 (v4)
+GET http://localhost:8080/front-controller/v5/v4/members
+
