@@ -1,0 +1,14 @@
+### 회원가입 폼
+GET http://localhost:8080/springmvc/v2/members/new-form
+
+### 데이터 저장 요청
+POST http://localhost:8080/springmvc/v2/members/save
+Content-Type: application/x-www-form-urlencoded
+
+username=good-to-go&age=231237
+
+### 리스트
+GET http://localhost:8080/springmvc/v2/members
+
+
+//@ todo : memvers :: 이거누구야 memv 범인 잡아내 당장 잡아내 전수조사해

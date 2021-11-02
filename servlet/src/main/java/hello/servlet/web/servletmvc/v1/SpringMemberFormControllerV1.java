@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class SpringMemberFormControllerV1 {
 
-    private MemberRepository memberRepository = MemberRepository.getInstance();
-
     @RequestMapping("/springmvc/v1/members/new-form")
     public ModelAndView process(HttpServletRequest request, HttpServletResponse response) {
         return new ModelAndView("new-form");
