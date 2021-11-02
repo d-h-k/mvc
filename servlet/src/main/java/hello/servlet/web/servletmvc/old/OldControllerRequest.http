@@ -1,0 +1,6 @@
+### 일단 호출되는걸 확인
+GET http://localhost:8080/springmvc/old-controller
+
+
+### 일단 호출되는걸 확인
+GET http://localhost:8080/springmvc/request-handler
