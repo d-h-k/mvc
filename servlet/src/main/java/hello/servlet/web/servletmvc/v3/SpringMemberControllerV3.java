@@ -4,6 +4,7 @@ package hello.servlet.web.servletmvc.v3;
 import hello.servlet.domain.Member;
 import hello.servlet.domain.MemberRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,7 +24,7 @@ public class SpringMemberControllerV3 {
         return new ModelAndView("new-form");
     }
 
-    @RequestMapping("/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView save(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age"));
@@ -36,10 +37,9 @@ public class SpringMemberControllerV3 {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView process(HttpServletRequest request, HttpServletResponse response) {
-
-        List<Member> members = memberRepository.findAll();
-        return new ModelAndView("members").addObject("members", members);
+    public String process(Model model) {
+        model.addAttribute("members", memberRepository.findAll());
+        return "members"; // 뷰의 논리 이름을 반환할 수 있다
     }
 
 }
