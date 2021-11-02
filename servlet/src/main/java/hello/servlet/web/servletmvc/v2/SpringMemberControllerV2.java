@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/springmvc/v2/members")
-public class SpringMemberListControllerV2 {
+public class SpringMemberControllerV2 {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
