@@ -1,0 +1,2 @@
+### 로그테스트 컨트롤러 실행시키기
+GET http://localhost:8080/log-test
