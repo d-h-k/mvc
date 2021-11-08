@@ -17,3 +17,15 @@
 발전과정과 함께 만들어가고, 그다음 최종 결과물의 편리한 기능까지 소개시켜주는 강의라 감동적이였습니다
 
 ## 일어날 일은 일어난다
+
+
+----- 이번주
+
+## 매핑 컨트롤러의 반환형식 (@RestController VS @Controller)
+- @RestController 와 @Controller 차이
+- @Controller : 반환 값이 String 이면 VIEW PAGE의 이름으로 인식된다. 
+  - 그래서 뷰를 찾고 뷰가 랜더링 된다.
+- @RestController 는 HTTP 메시지 바디에 바로 입력된다
+  - 똑같이 String-Type 으로 반환해도 실행 결과로 ok 문자열을 받게된다
+  - @ResponseBody 와 관련이 있는데 뒤에서 다룸
+  

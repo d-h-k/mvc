@@ -1,0 +1,46 @@
+### RequestMapping : GET 메서드
+GET http://localhost:8080/hello-basic
+### RequestMapping : POST 메서드
+POST http://localhost:8080/hello-basic
+### RequestMapping : PUT 메서드
+PUT http://localhost:8080/hello-basic
+### RequestMapping : DELETE 메서드
+DELETE http://localhost:8080/hello-basic
+### RequestMapping : PATCH 메서드
+PATCH http://localhost:8080/hello-basic
+# 메서드의 종류에는 : GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
+
+
+### RequestMapping : GET 메서드는 성공한다
+GET http://localhost:8080/mapping-get-v1
+### RequestMapping : POST 메서드는 실패한다, 405에러가 발생하면 정상
+POST http://localhost:8080/mapping-get-v1
+
+
+### GetMapping : : GET 메서드는 성공한다
+GET http://localhost:8080/mapping-get-v2
+### RequestMapping : POST 메서드는 실패한다, 405에러가 발생하면 정상
+POST http://localhost:8080/mapping-get-v2
+
+
+
+### 패스요청
+GET http://localhost:8080/mapping/hello
+### 패스요청
+GET http://localhost:8080/mapping/java
+
+
+
+### 패스요청 2개
+GET http://localhost:8080/mapping/users/tywin/orders/777
+### 패스요청 2개
+GET http://localhost:8080/mapping/users/blackJcak/orders/1235
+
+
+### 특정 파라미터가 있어야하는 조건을 추가할 수 있다 - 성공한다
+GET http://localhost:8080/mapping-param?mode=debug
+### 특정 파라미터가 있어야하는 조건을 추가할 수 있다 - 실패한다 (400 Bad)
+GET http://localhost:8080/mapping-param?mode=run
+### 특정 파라미터가 있어야하는 조건을 추가할 수 있다 - 실패한다 (400 Bad)
+GET http://localhost:8080/mapping-param
+
