@@ -47,6 +47,7 @@ public String helloBasic(HttpServletRequest request) {
 }
 ```
 
-- 참고로 입력매개변수로 
+- 참고 : 입력매개변수 뭘 받아오는걸 생각해보면 
+  - 함수 시그니쳐가 달라지는거인데.. 생각해보면 Pageable도 이걸로 개발했어요 그때는 누가 마법같이 만들어주는거지 신기해 했음
   - 이런걸 보면 스프링MVC는 OCP 원칙을 철저하게 준수해서 개발할 수 있는 프레임워크
-  - 
+  - 키워드 : HandlerMethodArgumentResolver, https://starkying.tistory.com/entry/Spring-MVC-%E2%80%94-HandlerMethodArgumentResolver-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
