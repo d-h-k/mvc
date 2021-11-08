@@ -29,3 +29,24 @@
   - 똑같이 String-Type 으로 반환해도 실행 결과로 ok 문자열을 받게된다
   - @ResponseBody 와 관련이 있는데 뒤에서 다룸
   
+
+
+## SpringMVC에서 HttpServletRequest request 를 사용하는 방법
+- 실패하는 방법 HttpServletRequest 클래스는 DI로 주입받는 방식이 실패했다
+```java
+@Autowired
+HttpServletRequest request; //안된다 .. NullPointerException
+```
+- 메서드의 입력파라미터로 자동으로 사용할 수 있었다
+```java
+@RequestMapping("/hello-basic")
+public String helloBasic(HttpServletRequest request) {
+    log.info("뒤에 슬래쉬 붙던 안붙던 상관하지 않고 둘다 허용 : /hello-basic, /hello-basic/");
+    log.info("모든 HTTP 메서드를 모두 허용 GET, HEAD, POST, PUT, PATCH, DELETE 등emd");
+    return "OK /hello-basic :: " + request.getMethod();
+}
+```
+
+- 참고로 입력매개변수로 
+  - 이런걸 보면 스프링MVC는 OCP 원칙을 철저하게 준수해서 개발할 수 있는 프레임워크
+  - 
