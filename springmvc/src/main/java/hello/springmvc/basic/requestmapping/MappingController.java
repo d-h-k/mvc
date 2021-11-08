@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +17,11 @@ public class MappingController {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    //HttpServletRequest request;
+    //@Autowired
+    //HttpServletRequest request; //안된다 .. NullPointerException
 
     @RequestMapping("/hello-basic")
-    public String hellobasic(HttpServletRequest request) {
+    public String helloBasic(HttpServletRequest request) {
         log.info("뒤에 슬래쉬 붙던 안붙던 상관하지 않고 둘다 허용 : /hello-basic, /hello-basic/");
         log.info("모든 HTTP 메서드를 모두 허용 GET, HEAD, POST, PUT, PATCH, DELETE 등emd");
         return "OK /hello-basic :: " + request.getMethod();
@@ -61,17 +63,40 @@ public class MappingController {
     }
 
 
-
     @GetMapping(value = "/mapping-param", params = "mode=debug")
     public String mappingParma() {
-        log.info("mappingParma");
+        log.info("mappingParma 를 이용해서 쿼리스트링상에 특정한 K-V 가 있어야만 동작하는 조건을 추가할 수 있다");
+        log.info("params=\"mode\"");
+        log.info("params=\"!mode\"");
+        log.info("");
+        log.info("");
         return "OK : mappingParma";
     }
 
 
+    @GetMapping(value = "/mapping-header", headers = "mode=debug")
+    public String mappingHeader() {
+        log.info("mappingHeader 를 이용해서 특정 헤더 조건으로 컨트롤러 맵핑이 가능하다");
+        log.info("headers=\"mode\" ");
+        log.info("headers=\"mode=debug\" : mode 라는 헤더가 debug 이어야만 동작");
+        log.info("headers=\"!mode\"");
+        log.info("headers=\"mode!=debug\" : mode 라는 헤더가 debug 아니어야만 동작");
+        return "OK : mappingHeader";
+    }
 
 
-
+    @PostMapping(value = "/mapping-consume", consumes = "application/json")
+    public String mappingConsumes() {
+        log.info("mappingConsumes");
+        log.info("HTTP 요청의 Content-Type 헤더를 기반으로 미디어 타입으로 매핑한다");
+        log.info("만약 맞지 않으면 HTTP 415 상태코드(Unsupported Media Type)을 반환한다");
+        log.info("예시 \n" +
+                "produces = \"text/plain\"\n" +
+                "produces = {\"text/plain\", \"application/*\"}\n" +
+                "produces = MediaType.TEXT_PLAIN_VALUE\n" +
+                "produces = \"text/plain;charset=UTF-8\"");
+        return "OK : mappingConsumes";
+    }
 
 
 
