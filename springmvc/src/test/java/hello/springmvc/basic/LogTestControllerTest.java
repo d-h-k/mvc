@@ -1,6 +1,8 @@
 package hello.springmvc.basic;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +20,11 @@ class LogTestControllerTest {
     private static final int REPEAT = 1000;
 
 
-    @Test
+    //@Test
+    @RepeatedTest(10)
     @DisplayName("trace : 출력하지 않는경우, {} vs [+]")
-    void logBenchmarkV1() {
+    void logBenchmarkV1(RepetitionInfo info) {
+        out.println(info.getCurrentRepetition());
 
         //given
         long start = 0L;
@@ -120,9 +124,9 @@ class LogTestControllerTest {
     }
 
 
-    @Test
+    @RepeatedTest(10)
     @DisplayName("print vs logger 속도차이")
-    public void test() {
+    public void test(RepetitionInfo info) {
         //given
         long start = 0L;
         long end = 0L;
@@ -156,6 +160,18 @@ class LogTestControllerTest {
             out.println("stringPlus : " + prefix[(int) (Math.random() * 10)] + postfix[(int) (Math.random() * 10)]);
             out.println("stringPlus : " + prefix[(int) (Math.random() * 10)] + postfix[(int) (Math.random() * 10)]);
         }
+        //String.format("Hello %s(%s)",
     }
 
+
+    @Test
+    @DisplayName("단순 문자열 출력 : log VS sout")
+    public void tesffdfdRt() {
+        //given
+        out.println("드릉드릉하다");
+        //whenR
+        log.info("드릉드릉하다");
+        //then
+
+    }
 }

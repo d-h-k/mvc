@@ -1,0 +1,7 @@
+### test
+GET http://localhost:8080/request-param-v1?username=hello&age=20
+
+
+### POST FORM 실행 (152페이지)
+GET http://localhost:8080/basic/hello-form.html
+
