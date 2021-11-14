@@ -1,7 +1,78 @@
-### test
+### rqv1
 GET http://localhost:8080/request-param-v1?username=hello&age=20
+
+
+### rqv2
+GET http://localhost:8080/request-param-v2?username=hello&age=20
+
+
+### rqv3
+GET http://localhost:8080/request-param-v3?username=hello&age=20
+
+
+### rqv4
+GET http://localhost:8080/request-param-v4?username=hello&age=20
 
 
 ### POST FORM 실행 (152페이지)
 GET http://localhost:8080/basic/hello-form.html
 
+
+### required 옵션 주는경우, 없으면 실패하는 요청
+GET http://localhost:8080/request-param-required
+### required 옵션 주는경우, 있어서 성공하는 요청
+GET http://localhost:8080/request-param-required?username=hello&age=20
+### required 옵션 주는경우, 필요한것만 있고, 필수가 아닌것은 안보내줘도 성공
+GET http://localhost:8080/request-param-required?username=hello
+
+
+
+
+### 모든 요청파라미터를 Map자료구조를 사용해 받아버릴 수 있다
+GET http://localhost:8080/request-param-map?username=hello&username=world&age=20&lecture=springmvc
+### 파라미터가 없어도 간다
+GET http://localhost:8080/request-param-map
+
+
+
+
+### MultiValueMap 자료구조를 사용해 중복된 키값이 있어도 놓치지않고 받을 수 있다
+GET http://localhost:8080/request-multi-param-map?username=hello&username=world&username=java&username=multivalMap&age=20&lecture=springmvc
+### 파라미터가 없어도 간다
+GET http://localhost:8080/request-multi-param-map
+
+
+
+
+### 모든 요청파라미터를 Map자료구조를 사용해 받아버릴 수 있다
+GET http://localhost:8080/request-param-map?username=hello&username=world&age=20&lecture=springmvc
+### 파라미터가 없어도 간다
+GET http://localhost:8080/request-param-map
+
+
+
+
+
+### 요청파라미터 @RequestParam 으로 하나씩 받기
+POST http://localhost:8080/model-attribute-v0?username=RequestParam&age=12123
+### 하나더
+GET http://localhost:8080/model-attribute-v0?username=RequestParam&age=12123
+
+
+
+### 요청파라미터 @ModelAttribute로 한방에 받기
+POST http://localhost:8080/model-attribute-v1?username=ModelAttribute&age=998977
+### 하나더
+GET http://localhost:8080/model-attribute-v1?username=ModelAttribute&age=998977
+
+
+### 바인딩 익셉션 발생시키기 - 숫자칸에 문자를 넣으면, 오류처리와 검증은 뒤에서
+GET http://localhost:8080/model-attribute-v0?username=ModelAttribute&age=bindException
+### v1으로 보내기, v0도 모두 에러남
+GET http://localhost:8080/model-attribute-v1?username=ModelAttribute&age=bindException
+
+
+### @ModelAttribute 도 생략가능
+POST http://localhost:8080/model-attribute-v2?username=ModelAttribute&age=998977
+### 하나더
+GET http://localhost:8080/model-attribute-v2?username=ModelAttribute&age=998977

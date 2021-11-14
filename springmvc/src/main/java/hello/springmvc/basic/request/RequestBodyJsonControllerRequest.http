@@ -1,0 +1,49 @@
+###
+POST http://localhost:8080/request-body-json-v1
+Content-Type: application/json
+
+{
+  "username":"gil-dong",
+  "age":"77"
+}
+
+###
+POST http://localhost:8080/request-body-json-v2
+Content-Type: application/json
+
+{
+  "username":"gil-dong",
+  "age":"77"
+}
+
+###
+POST http://localhost:8080/request-body-json-v3
+Content-Type: application/json
+
+{
+  "username":"gil-dong",
+  "age":"77"
+}
+
+###
+POST http://localhost:8080/request-body-json-v4
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username":"gil-dong",
+  "age":"77"
+}
+
+
+
+###
+POST http://localhost:8080/request-body-json-v5
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username":"gil-dong",
+  "age":"77"
+}
+

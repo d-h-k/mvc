@@ -1,0 +1,16 @@
+###
+GET http://localhost:8080/response-body-string-v1
+
+###
+GET http://localhost:8080/response-body-string-v2
+
+###
+GET http://localhost:8080/response-body-string-v3
+
+###
+GET http://localhost:8080/response-body-json-v1
+
+###
+GET http://localhost:8080/response-body-json-v2
+
+

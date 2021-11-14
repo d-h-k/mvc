@@ -19,10 +19,10 @@ public class RequestParamController {
 
     @RequestMapping("/request-param-v1")
     public void requestParamV1(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        log.info("\n requestParamV1 : 과거 JSP 시절에나 쓰던 방식, HttpServletRequest 에서 제공하는 방식으로 요청 파라미터를 조회");
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age"));
         log.info("username={}, age={}", username, age);
-        log.info("과거 JSP 시절에나 쓰던 방식, HttpServletRequest 에서 제공하는 방식으로 요청 파라미터를 조회");
         response.getWriter().write("OK : /request-param-v1");
     }
 
@@ -32,6 +32,7 @@ public class RequestParamController {
             @RequestParam("username") String memberName,
             @RequestParam("age") int memberAge
     ) {
+        log.info("\n requestParamV2 : 파라미터 바인딩 방식");
         log.info("@RequestParam : 파라미터 이름으로 바인딩");
         log.info("@ResponseBody : View 조회를 무시하고, HTTP message body 에 문자열 담아서 보낸다");
         log.info("username={}, age={}", memberName, memberAge);
@@ -42,9 +43,9 @@ public class RequestParamController {
     @ResponseBody
     @RequestMapping("/request-param-v3")
     public String requestParamV3(@RequestParam String username, @RequestParam int age) {
-        log.info("HTTP 파라미터 이름이 변수 이름과 같으면 @RequestParam 어노테이션에 넣어줘야하는 파라미터를 생략할수 있다\n" +
+        log.info("\n requestParamV3 : 파라미터의 이름과 변수명이 같으면 생략가능 \n" +
+                "HTTP 파라미터 이름이 변수 이름과 같으면 @RequestParam 어노테이션에 넣어줘야하는 파라미터를 생략할수 있다\n" +
                 "이정도 형태가 Best Practice");
-
         log.info("username={}, age={}", username, age);
         return "OK : /request-param-v3";
     }
@@ -52,11 +53,12 @@ public class RequestParamController {
     @ResponseBody
     @RequestMapping("/request-param-v4")
     public String requestParamV4(String username, int age) {
+        log.info("\n request-param-v4 : Str,Int 타입은 어노테이션도 생략가능");
         log.info("String , int , Integer 등의 단순 타입이면 @RequestParam 도 생략 가능하다\n" +
                 "너무 과도하게 생략되있어서 코드 명확성/가독성이 떨어질수도 있어서 비추천");
 
         log.info("username={}, age={}", username, age);
-        return "OK : /request-param-v3";
+        return "OK : /request-param-v4";
     }
     //@RequestParam 애노테이션을 생략하면 스프링 MVC는 내부에서 required=false 를 적용
 
@@ -85,6 +87,9 @@ public class RequestParamController {
     @RequestMapping("/request-param-map")
     public String requestParamMap(@RequestParam Map<String, Object> paramMap) {
         log.info("username={}, age={}", paramMap.get("username"), paramMap.get("age"));
+        paramMap
+                .keySet()
+                .forEach((key) -> log.info("\n Map(Hash) : key={}, value={}", key, paramMap.get(key)));
         return "OK : /request-param-map";
     }
 
@@ -93,14 +98,31 @@ public class RequestParamController {
     @RequestMapping("/request-multi-param-map")
     public String requestMultiParamMap(@RequestParam MultiValueMap<String, Object> paramMap) {
         log.info("username={}, age={}", paramMap.get("username"), paramMap.get("age").get(0));
+        paramMap
+                .keySet()
+                .forEach((key) -> log.info("\n MultiValueMap : key={}, value={}", key, paramMap.get(key)));
         return "OK : /request-multi-param-map";
     }
 
+
+    @ResponseBody
+    @RequestMapping("/model-attribute-v0")
+    public String modelAttributeV1(@RequestParam String username, @RequestParam int age) {
+        log.info("\n modelAttributeV0 : @RequestParam 어노테이션으로 파라미터들을 받아올 수 있다, 변수하나씩");
+        log.info("username={}, age={}", username, age);
+        return "OK - /model-attribute-v0";
+    }
+
+
+    //@ModelAttribute : 실제 개발을 하면 요청 파라미터를 받아서 필요한 객체를 만들고 그 객체에 값을 넣어주는 과정 자동화
     @ResponseBody
     @RequestMapping("/model-attribute-v1")
     public String modelAttributeV1(@ModelAttribute HelloData helloData) {
-        log.info("username={}, age={}", helloData.getUsername(),
-                helloData.getAge());
+        log.info("\n modelAttributeV1 : v0 과 다른점은 @RequestParam 많으면 곤란하니까 @ModelAttribute 써서 객체로 한방에 받을 수 있다");
+        log.info("username={}, age={}, helloData={}",
+                helloData.getUsername(),
+                helloData.getAge(),
+                helloData);
 
         log.info("스프링MVC는 @ModelAttribute 가 있으면 다음을 실행한다.\n" +
                 "  - HelloData 객체를 생성한다.\n" +
@@ -109,4 +131,18 @@ public class RequestParamController {
                 "  - 예시) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.");
         return "OK - /model-attribute-v1";
     }
+
+
+    @ResponseBody
+    @RequestMapping("/model-attribute-v2")
+    public String modelAttributeV2(@ModelAttribute HelloData helloData) {
+        log.info("\n modelAttributeV2 : @ModelAttribute 어노테이션은 생략할 수 있다 근데, @RequestParam 어노테이션도 생략 가능하니까 모호하다 그래서 안티패턴");
+        log.info("username={}, age={}", helloData.getUsername(), helloData.getAge());
+        log.info("스프링이 정해놓은 요청파라미터 데이터바인딩 규칙\n" +
+                "1) 기본자료형 : String, int, Inteager 등 기본자료형은 >> 자동으로 @RequestParam 붙여줌\n" +
+                "2) 이외 나머지 객체 : @ModelAttribute 붙여서 처리, 내가 만든 커스텀 클래스가 대부분이겠죠??" +
+                "3) 예외사항 : Argument-Resolver 로 지정해둔 타입은 예외로 빠짐 (HttpServletRequest 같은것들이 아규먼트 리졸버에 의해 주입됨, 클라이언트의 요청에서 받는게 아니라 스프링프레임워크가 관리해 주는 자원");
+        return "OK - /model-attribute-v2";
+    }
+
 }

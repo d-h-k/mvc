@@ -1,31 +1,44 @@
 ### RequestMapping : GET 메서드
 GET http://localhost:8080/hello-basic
+
 ### RequestMapping : POST 메서드
 POST http://localhost:8080/hello-basic
+
 ### RequestMapping : PUT 메서드
 PUT http://localhost:8080/hello-basic
+
 ### RequestMapping : DELETE 메서드
 DELETE http://localhost:8080/hello-basic
+
 ### RequestMapping : PATCH 메서드
 PATCH http://localhost:8080/hello-basic
+
 # 메서드의 종류에는 : GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
+
+
+
 
 
 ### RequestMapping : GET 메서드는 성공한다
 GET http://localhost:8080/mapping-get-v1
+
 ### RequestMapping : POST 메서드는 실패한다, 405에러가 발생하면 정상
 POST http://localhost:8080/mapping-get-v1
 
 
 ### GetMapping : : GET 메서드는 성공한다
 GET http://localhost:8080/mapping-get-v2
+
 ### RequestMapping : POST 메서드는 실패한다, 405에러가 발생하면 정상
 POST http://localhost:8080/mapping-get-v2
 
 
 
+
+
 ### 경로조건에 대한 요청 맵핑 : 1번
 GET http://localhost:8080/mapping/hello
+
 ### 2번
 GET http://localhost:8080/mapping/java
 
@@ -33,24 +46,31 @@ GET http://localhost:8080/mapping/java
 
 ### 경로조건에 대한 요청 맵핑, 인자가 2개 : 1번
 GET http://localhost:8080/mapping/users/tywin/orders/777
+
 ### 2번
 GET http://localhost:8080/mapping/users/blackJcak/orders/1235
 
 
 ### 파라미터조건 : 특정 파라미터가 있어야하는 조건을 추가할 수 있다 - 성공한다
 GET http://localhost:8080/mapping-param?mode=debug
+
 ### 파라미터조건 : 특정 파라미터가 있어야하는 조건을 추가할 수 있다 - 실패한다 (400 Bad)
 GET http://localhost:8080/mapping-param?mode=run
+
 ### 파라미터조건 : 특정 파라미터가 있어야하는 조건을 추가할 수 있다 - 실패한다 (400 Bad)
 GET http://localhost:8080/mapping-param
+
+
 
 
 ### 헤더조건 : 특정 헤더가  있어야 받아주는 조건 - 성공한다
 GET http://localhost:8080/mapping-header
 mode: debug
+
 ### 헤더조건 : 특정 헤더가 있어야 받아주는 조건 - 실패한다 (404 NotFound)
 GET http://localhost:8080/mapping-header
 myheader: debug
+
 ### 헤더조건 : 특정 헤더가 있어야 받아주는 조건 - 실패한다 (404 NotFound , 근데 이게 왜 400에러가 아니고 404에러일까..? @todo)
 GET http://localhost:8080/mapping-header
 mode:running
@@ -60,9 +80,11 @@ todo:why400errorcode
 ### 미디어 타입 조건의 맵핑 : Consume 사용 - Content-Type: application/json - 성공한다
 POST http://localhost:8080/mapping-consume
 Content-Type: application/json
+
 ### 미디어 타입 조건의 맵핑 : Consume 사용 - text/html 실패한다 (415 - Unsupported Media Type)
 POST http://localhost:8080/mapping-consume
 Content-Type: text/html
+
 ### 미디어 타입 조건의 맵핑 : Consume 사용 - 헤더가 없어도 실패한다 (415 - Unsupported Media Type)
 POST http://localhost:8080/mapping-consume
 

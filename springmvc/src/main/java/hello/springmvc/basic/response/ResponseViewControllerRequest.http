@@ -1,0 +1,8 @@
+###
+GET http://localhost:8080/response-view-v1
+
+###
+GET http://localhost:8080/response-view-v2
+
+###
+GET http://localhost:8080/response/hello
