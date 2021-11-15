@@ -1,0 +1,64 @@
+GET http://localhost:8080/html/editForm.html
+
+<> 2021-11-15T132322.200.html
+
+###
+
+GET http://localhost:8080/html/addForm.html
+
+<> 2021-11-15T132319.200.html
+
+###
+
+GET http://localhost:8080/html/items.html
+
+<> 2021-11-15T132259.200.html
+
+###
+
+GET http://localhost:8080/html/item.html
+
+<> 2021-11-15T132245.200.html
+
+###
+
+GET http://localhost:8080/html/item
+
+<> 2021-11-15T132234.404.json
+
+###
+
+GET http://localhost:8080/html/item
+
+###
+
+GET http://localhost:8080/html/item
+
+###
+
+GET http://localhost:8080/html/item
+
+###
+
+GET http://localhost:8080/css/bootstrap.min.css
+
+<> 2021-11-15T131834.200.css
+
+###
+
+GET http://localhost:8080/css/bootstrap.min.css
+
+<> 2021-11-15T131803.404.json
+
+###
+
+GET http://localhost:8080
+
+<> 2021-11-15T131733.200.html
+
+###
+
+GET http://localhost:8080R
+
+###
+
