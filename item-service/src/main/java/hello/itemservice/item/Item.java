@@ -1,5 +1,6 @@
 package hello.itemservice.item;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 @Setter
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode
 public class Item {
     @Id
     @GeneratedValue
@@ -24,5 +26,11 @@ public class Item {
         this.itemName = itemName;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    void update(Item savedItem, Item updateParam) {
+        savedItem.setItemName(updateParam.getItemName());
+        savedItem.setQuantity(updateParam.quantity);
+        savedItem.setPrice(updateParam.price);
     }
 }
