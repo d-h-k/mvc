@@ -11,11 +11,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ItemRepositoryTest {
 
-    static {
-        Item item1 = new Item();
-        Item item2 = new Item();
-        Item item3 = new Item();
 
+    static {
+        Item item1 = new Item("AA", 1000,100);
+        Item item2 = new Item("BB", 2200,202);
+        Item item3 = new Item("CC", 3330,333);
     }
 
     @Autowired
