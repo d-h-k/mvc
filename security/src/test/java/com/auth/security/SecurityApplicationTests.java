@@ -1,10 +1,10 @@
-package auth.dong;
+package com.auth.security;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DongApplicationTests {
+class SecurityApplicationTests {
 
 	@Test
 	void contextLoads() {
