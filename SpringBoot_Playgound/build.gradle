@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.10.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+	implementation 'com.h2database:h2'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+	//for spring-data-jdbc
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	runtimeOnly 'mysql:mysql-connector-java'
+
+
+	//for validation 테스트(빈 벨리데이터)
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	//롬복
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+
+	//slack SDK
+	implementation 'com.google.code.gson:gson:2.8.6'
+	implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+	implementation 'com.slack.api:slack-app-backend:1.6.2'
+	implementation 'com.slack.api:slack-api-model:1.6.2'
+	implementation 'com.slack.api:slack-api-client:1.6.2'
+
+}
+
+test {
+	useJUnitPlatform()
+}
