@@ -26,7 +26,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // 특히 "/"및 "/home" 경로는 인증이 필요하지 않도록 구성됩니다.
                 .authorizeRequests()
-                .antMatchers("/", "home")
+                .antMatchers("/",
+                             "home",
+                             "/",
+                             "/error",
+                             "/webjars/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -40,8 +44,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //로그아웃 페이지도 인증이 필요없음
                 .logout()
-                .permitAll();
+                .permitAll()
+                .and();
 
+
+        http
+                // ... existing code here
+                .logout(l -> l
+                        .logoutSuccessUrl("/").permitAll()
+                );
         ////다른 모든 경로는 인증이 필요함
     }
 
