@@ -5,4 +5,9 @@ spring:
         registration:
           github:
             clientId: c7adc71d1700acad7b68
-            clientSecret: hihi
+            clientSecret: a878b663d0ee18c28355dfc8d8ccd5045a5f35ac
+            scope: email, profile
+          google:
+            clientId: 430902369343-r16aja235kdcaa6m8tstdef8pp1v4ceo.apps.googleusercontent.com
+            clientSecret: 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
+            scope: email, profile

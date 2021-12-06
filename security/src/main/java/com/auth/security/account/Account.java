@@ -7,6 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,6 +23,8 @@ import lombok.Setter;
 // 어디팅에 생성시간까지 고려할 필요 없어서 false
 public class Account /*BaseEntityAuditing*/ {
 
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private String email;
