@@ -3,8 +3,8 @@ package com.auth.security.account;
 import org.springframework.stereotype.Repository;
 
 import java.util.concurrent.ConcurrentHashMap;
-
-@Repository
+/*
+//@Repository
 public class AccountRepositoryImpl implements AccountRepository{
 
     private static final ConcurrentHashMap<Long, Account> accountMap = new ConcurrentHashMap<>();
@@ -33,3 +33,6 @@ public class AccountRepositoryImpl implements AccountRepository{
     }
 
 }
+
+
+ */

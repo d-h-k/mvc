@@ -4,5 +4,10 @@ spring:
       client:
         registration:
           github:
-            clientId: c7adc71d1700acad7b68
-            clientSecret: hihi
+            clientId:
+            clientSecret:
+            scope: email, profile
+          google:
+            clientId:
+            clientSecret:
+            scope: email, profile
