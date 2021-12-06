@@ -20,7 +20,7 @@ public class ItemController {
     public String items(Model model) {
         List<Item> items = itemRepository.findAll();
         model.addAttribute( "items",items);
-        return "basic/item";
+        return "basic/items";
     }
 
 
