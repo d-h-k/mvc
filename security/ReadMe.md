@@ -15,6 +15,37 @@
 
 ------------------
 
+## 스프링 시큐리티 작업하다가..
+- 스프링 시큐리티를 작업하다 실수로 아래 Oauth Key-value를 공개 Repo에 업로드해버렸다..
+- git push 엔터를 치자마자 앗차! 싶었는데 이미 업로드 된 뒤였고 최대한 빨리 해결하기 위해서 일단 Oauth 키부터 삭제하고
+  - 다행히 구글, 깃헙 두개뿐이 사용중이지 않아서, API 관리자 계정으로 접속해서 기존 키는 모조리 삭제처리하고, 새로운 키를 발급받았습니다 ㅠㅠ.
+- 다음 `git reset -Hard HEAD^` + `git push --force` 로 서버의 업로드 기록까지 삭제했다. github Key 일 뿐이라 노출되도 크게 영향은 없겠지만 AWS 키파일 같은거라면 좀 많이 곤란했을꺼같아요.. 
+
+```text
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId:@@@@@ 
+            clientSecret:@@@@
+            scope: email, profile
+          google:
+            clientId:@@@@
+            clientSecret:@@@@
+            scope: email, profile
+```
+- 이런식의 평문으로 clientSecret을 노출해버렸습니다 ;;
+
+### 왜 그랬을까...??
+- 일단, 해당 레포가 각잡고 개발하던 레포가 아니고 기능 테스트를 위해서 간단히 만들어본 레포인데요, 정석대로라면 암호화를 하던가, 파일을 나눠놓고 gitignore파일에 등록하던가 해야하는데, 그러지 않고 그냥 커밋할때 키 파일 부분만 요리조리 피해서 커밋하는 방식으로 관리해왔는데
+- 이게 개발하다가 컨디션이 안좋은 날 + 점심먹고와서 피곤한 상태가 중첩되서 이런 일이 벌어졌습니다.. 
+- clientSecret 같은 외부에 노출되어서는 안되는 Key값이 `암호화 되지 않은` 상태로  `git add` 혹은 `git commit` 가 가능한 범위인것 자체가 문제있는 상태라는걸 이제서야 배웠습니다.
+- 스스로 "알아서 잘하겠지" 라는 생각으로 요리조리 피해서 커밋하는 방식은 마치 `우리팀은 수비가 튼튼하니 골키퍼도 공격에 참여하도록` 작전을 세우는 축구감독과 같습니다. ㅠㅠ..!
+
+
+
 # 스프링 시큐리티 아키텍쳐
 - https://spring.io/guides/topicals/spring-security-architecture/
 
