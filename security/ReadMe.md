@@ -142,7 +142,7 @@ public class JasyptConfig {
 
 
 ### 암호화 관련참고링크
-- https://velog.io/@haeny01/Jasypt-yaml-%ED%8C%8C%EC%9D%BC%EC%9D%98-%EC%95%94%ED%98%B8%ED%99%94
+- [정리가 정말 잘되어있다..](https://velog.io/@haeny01/Jasypt-yaml-파일의-암호화) [..](https://velog.io/@haeny01/Jasypt-yaml-%ED%8C%8C%EC%9D%BC%EC%9D%98-%EC%95%94%ED%98%B8%ED%99%94)
 - https://luvstudy.tistory.com/67
 
 --------------------
