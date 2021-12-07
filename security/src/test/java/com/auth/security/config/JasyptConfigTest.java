@@ -1,19 +1,21 @@
 package com.auth.security.config;
 
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
+
 class JasyptConfigTest {
 
     @Test
+    @DisplayName("암호화가 정상적으로 동작한다")
     void jasypt(){
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String username = "postgres";
-        String password = "1234";
+        String url = "jdbc:aws-rds://north-east-3b-rds-exp/rds:8876";
+        String username = "myRootMyRDS";
+        String password = "root";
 
         String encryptUrl = jasyptEncrypt(url);
         String encryptUsername = jasyptEncrypt(username);
@@ -27,7 +29,7 @@ class JasyptConfigTest {
     }
 
     private String jasyptEncrypt(String input) {
-        String key = "5678";
+        String key = "password1234!";
         StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
         encryptor.setAlgorithm("PBEWithMD5AndDES");
         encryptor.setPassword(key);
@@ -35,7 +37,7 @@ class JasyptConfigTest {
     }
 
     private String jasyptDecryt(String input){
-        String key = "5678";
+        String key = "password1234!";
         StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
         encryptor.setAlgorithm("PBEWithMD5AndDES");
         encryptor.setPassword(key);

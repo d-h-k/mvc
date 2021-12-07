@@ -1,13 +1,37 @@
 spring:
+
+  datasource:
+    url: jdbc:h2:mem:just-board
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
   security:
     oauth2:
       client:
         registration:
           github:
-            clientId:
-            clientSecret:
+            clientId: c7adc71d1700acad7b68
+            clientSecret: ENC(TIRynrVybt5hqFhgyt4kDJri6BfjLMfqujVUn/dYrK9BhoMzcHEp9ubDJ0E4whdr347FuOS55rQ=)
             scope: email, profile
           google:
-            clientId:
-            clientSecret:
+            clientId: 430902369343-r16aja235kdcaa6m8tstdef8pp1v4ceo.apps.googleusercontent.com
+            clientSecret: ENC(TIRynrVybt5hqFhgyt4kDJri6BfjLMfqujVUn/dYrK9BhoMzcHEp9ubDJ0E4whdr347FuOS55rQ=)
             scope: email, profile
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # http://localhost:8080/h2-console/
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    password: ${JASYPT_PASSWORD}
+
+# @todo : 인크립트 (JASYPT) 하고 + OAuth 진행하기
