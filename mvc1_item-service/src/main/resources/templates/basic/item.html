@@ -18,7 +18,7 @@
         <h2>상품 상세</h2>
     </div>
 
-    <! 상품아이디 >
+    <!--- 상품아이디 --->
     <div>
         <label for="itemId">상품 ID</label>
         <input type="text" id="itemId"
@@ -27,7 +27,7 @@
                readonly>
     </div>
 
-    <! 상품명 >
+    <!--- 상품명 --->
     <div>
         <label for="itemName">상품명</label>
         <input type="text" id="itemName"
@@ -36,7 +36,7 @@
                readonly>
     </div>
 
-    <! 상품가격 >
+    <!--- 상품가격 --->
     <div>
         <label for="price">가격</label>
         <input type="text" id="price"
@@ -53,13 +53,13 @@
     </div>
 
 
-    <! >
+    <!--- --->
     <hr class="my-4">
     <div class="row">
 
 
-        <! th:onclick="|location.href='@{/basic/items/{itemId}/edit (itemId=${item.id})}'|" >
-        <! 상품수정 링크 >
+        <!--- th:onclick="|location.href='@{/basic/items/{itemId}/edit (itemId=${item.id})}'|" >
+        <! 상품수정 링크 --->
         <div class="col">
             <button class="w-100 btn btn-primary btn-lg"
                     onclick="location.href='editForm.html'"
@@ -69,8 +69,8 @@
         </div>
 
 
-        <! th:onclick="|location.href='@{/basic/items}'|" >
-        <! 목록으로 링크 >
+        <!--- th:onclick="|location.href='@{/basic/items}'|" >
+        <! 목록으로 링크 --->
         <div class="col">
             <button class="w-100 btn btn-secondary btn-lg"
                     onclick="location.href='items.html'"

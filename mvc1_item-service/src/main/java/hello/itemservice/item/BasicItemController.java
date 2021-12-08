@@ -37,7 +37,9 @@ public class BasicItemController {
 
     @GetMapping("/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
-        Item item = itemRepository.findById(itemId).orElseThrow(EntityNotFoundException::new);
+        Item item = itemRepository
+                .findById(itemId)
+                .orElseThrow(EntityNotFoundException::new);
         model.addAttribute("item", item);
         return "basic/item";
     }
@@ -75,5 +77,19 @@ public class BasicItemController {
         // 이때 모델에 저장되는 이름은 클래스명 기준이며, 클래스이름의 첫글자만 소문자로 변경되서 저장된다
         return "basic/item";
     }
+
+
+    @todo : 이거 수정하고 인강들으면 됨 1208(수)
+    @GetMapping("/{itemId}/edit")
+    public String editItem(@PathVariable Long itemId,
+                            Model model) {
+        Item item = itemRepository
+                .findById(itemId)
+                .orElseThrow(EntityNotFoundException::new);
+        model.addAttribute("item", item);
+        return "basic/addForm";
+    }
+
+
 
 }
