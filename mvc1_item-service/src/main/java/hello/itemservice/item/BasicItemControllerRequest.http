@@ -1,0 +1,20 @@
+### 페이지 요청
+GET localhost:8080/basic/items
+
+### 페이지 요청
+GET localhost:8080/basic/items/1
+
+### 페이지 요청
+GET localhost:8080/basic/items/2
+
+###
+GET localhost:8080/basic/items/add/v1
+
+
+###
+GET localhost:8080/basic/items/add/v2
+
+
+###
+GET localhost:8080/basic/items/add/v3
+
