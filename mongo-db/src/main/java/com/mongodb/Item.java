@@ -6,11 +6,11 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collation = "item")
 @AllArgsConstructor
 @Getter
 @Setter
-public class GroceryItem {
+public class Item {
     @Id
     private String id;
 
