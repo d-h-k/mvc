@@ -1,0 +1,5 @@
+### 정상
+GET http://localhost:8080/v1/request?itemId=hello
+
+### 예외
+GET http://localhost:8080/v1/request?itemId=ex
