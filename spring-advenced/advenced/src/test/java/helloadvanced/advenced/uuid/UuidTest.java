@@ -1,4 +1,4 @@
-package helloAdv.advenced.uuid;
+package helloadvanced.advenced.uuid;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

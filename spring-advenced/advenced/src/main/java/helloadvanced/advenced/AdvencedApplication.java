@@ -1,4 +1,4 @@
-package helloAdv.advenced;
+package helloadvanced.advenced;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
