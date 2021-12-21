@@ -1,2 +1,5 @@
-### 동작테스트
+### 동작테스트 - OK 리턴
 GET http://localhost:8080/v0/request?itemId=hello
+
+### 동작테스트 - 예외가 터저야 한다
+GET http://localhost:8080/v0/request?itemId=ex
