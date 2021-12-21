@@ -32,7 +32,18 @@ class HelloTraceV1Test {
 
         //then
         trace.exception(status, new IllegalArgumentException());
+    }
 
+    @Test
+    @DisplayName(" ")
+    public void test() {
+        //given
+
+        //when
+
+        //then
+        throw new AssertionError();
 
     }
+
 }
