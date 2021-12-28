@@ -1,0 +1,5 @@
+### 정상흐름
+GET http://localhost:8080/v3/request?itemId=hello
+
+### 예외발생
+GET http://localhost:8080/v3/request?itemId=ex
