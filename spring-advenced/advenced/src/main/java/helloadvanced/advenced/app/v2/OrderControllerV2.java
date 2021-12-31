@@ -19,9 +19,11 @@ public class OrderControllerV2 {
 
         TraceStatus status = null;
 
-        try { // 정상로직
-            status = trace.begin("OrderControllerV1-request()!");
-            orderService.orderItem(itemId);
+        try {
+            //여기서 요청이 시작됨
+            status = trace.begin("OrderControllerV2-request() BEGIN");
+
+            orderService.orderItem(status.getTraceId(), itemId); //v2 에서 : status.getTraceId() 추가함
             trace.end(status);
             return "OK";
         } catch (Exception e) { // 예외시 로직
