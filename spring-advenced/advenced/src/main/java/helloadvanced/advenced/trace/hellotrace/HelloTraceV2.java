@@ -13,6 +13,7 @@ public class HelloTraceV2 {
     private static final String COMPLETE_PREFIX = "<--";
     private static final String EX_PREFIX = "<X-";
 
+    //정말 처음시작하는 메서드에만 적용
     public TraceStatus begin(String message) {
         TraceId traceId = new TraceId();
         long startTimeMs = System.currentTimeMillis();
@@ -23,6 +24,8 @@ public class HelloTraceV2 {
     //V2 에서 추가된 부분
     public TraceStatus beginSync(TraceId beforeId, String message) {
         TraceId traceId = beforeId.createNextId();
+        // traceId 에 beforeId 가 담겨있음 >> 트랜잭션 유지됨
+        // 결론적으로 동작이 traceId 유지 && 레벨은 증가
         long startTimeMs = System.currentTimeMillis();
         log.info("[{}] {}{}", traceId.getId(), addSpace(START_PREFIX, traceId.getLevel()), message);
         return new TraceStatus(traceId, startTimeMs, message);

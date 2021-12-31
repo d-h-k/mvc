@@ -10,18 +10,25 @@ class HelloTraceV2Test {
 
 
     @Test
-    void begin_end_level2() {
+    @DisplayName("v2 정상흐름 동작 테스트")
+    void begin_end_v2() {
+
         HelloTraceV2 trace = new HelloTraceV2();
+
         TraceStatus status1 = trace.begin("hello1");
         TraceStatus status2 = trace.beginSync(status1.getTraceId(), "hello2");
         trace.end(status2);
         trace.end(status1);
+
     }
 
 
     @Test
+    @DisplayName("v2 예외상황 동작 테스트")
     void begin_exception_level2() {
+
         HelloTraceV2 trace = new HelloTraceV2();
+
         TraceStatus status1 = trace.begin("hello");
         TraceStatus status2 = trace.beginSync(status1.getTraceId(), "hello2");
         trace.exception(status2, new IllegalStateException());
@@ -29,7 +36,7 @@ class HelloTraceV2Test {
     }
 
     @Test
-    @DisplayName("이렇게 동작해야 합니다")
+    @DisplayName("v2 레벨이 정상적으로 표시됨 : depth 를 표현한다")
     public void showHowToWork() {
         //given
         HelloTraceV2 trace = new HelloTraceV2();
