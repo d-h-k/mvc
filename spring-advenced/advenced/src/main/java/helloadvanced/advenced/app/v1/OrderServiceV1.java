@@ -25,14 +25,9 @@ public class OrderServiceV1 {
     public void orderItem(String itemId) {
         TraceStatus status = null;
         try {
-            status = trace.begin(getClass().getName() + "." +
-                                         new Object() {
-                                         }.getClass()
-                                                 .getEnclosingMethod()
-                                                 .getName());
-            //이 한줄만 원래 있었음
+            status = trace.begin(getClass().getName() +
+                                         "." + "OrderServiceV1.orderItem()메서드임");
             orderRepository.save(itemId);
-            //
             trace.end(status);
         } catch (Exception e) {
             trace.exception(status, e);
