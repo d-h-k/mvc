@@ -4,6 +4,7 @@ import helloadvanced.advenced.trace.TraceStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+//테스트 이동or 작성 cmd+shitf+T
 class FieldLogTraceTest {
     FieldLogTrace trace = new FieldLogTrace();
 
@@ -42,4 +43,32 @@ class FieldLogTraceTest {
         [59770788] hello time=8ms ex=java.lang.IllegalStateException
          */
     }
+
+    @Test
+    @DisplayName("여러번 시작하는 테스트")
+    public void manyTest() {
+        //given
+        TraceStatus status1 = trace.begin("hello");
+        TraceStatus status2 = trace.begin("hello");
+        TraceStatus status3 = trace.begin("hello");
+        TraceStatus status4 = trace.begin("hello");
+        TraceStatus status5 = trace.begin("hello");
+        TraceStatus status6 = trace.begin("hello");
+        //when
+        //then
+        trace.end(status2);
+        trace.end(status1);
+        trace.end(status3);
+        trace.end(status4);
+        trace.end(status5);
+        trace.end(status6);
+
+        /*
+        [ed72b67d] hello1
+        [ed72b67d] |-->hello2
+        [ed72b67d] |<--hello2 time=2ms
+        [ed72b67d] hello1 time=6ms
+         */
+    }
+
 }
