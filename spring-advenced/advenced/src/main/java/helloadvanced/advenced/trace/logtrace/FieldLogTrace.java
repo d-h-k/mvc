@@ -13,7 +13,7 @@ public class FieldLogTrace implements LogTrace {
 
     //@todo : 여기가 중요 : 트레이스아이디를 필드변수로 저장
     private TraceId traceHolder; // 동기화를 위해 필드변수를 사용하는데, 동시성 이슈가 발생한다
-
+    //심각한 동시성 문제가 있음
 
     @Override
     public TraceStatus begin(String message) {
