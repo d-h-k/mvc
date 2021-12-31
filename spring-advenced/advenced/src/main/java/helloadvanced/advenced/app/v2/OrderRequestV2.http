@@ -3,3 +3,6 @@ GET http://localhost:8080/v2/request?itemId=hello
 
 ### 예외발생
 GET http://localhost:8080/v2/request?itemId=ex
+
+### 여기까지의 학습 정리
+GET http://localhost:8080/v2/help
