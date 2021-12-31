@@ -23,14 +23,15 @@ public class HelloTraceV2 {
 
     //V2 에서 추가된 부분
     public TraceStatus beginSync(TraceId beforeId, String message) {
+
         TraceId traceId = beforeId.createNextId();
-
-
         long startTimeMs = System.currentTimeMillis();
         log.info("V2 Trace [{}] {}{}", traceId.getId(), addSpace(START_PREFIX, traceId.getLevel()), message);
+
         log.debug("  - V2 Trace 의 beginSync() 는 traceId 유지 && 레벨은 증가하는 기능을 구현했다");
         log.debug("  - 어캐했누? : traceId 에 beforeId 를 전달받음, ID 를 유지함으로써 트랜잭션 유지됨");
         log.debug("  - 단점은 repo, service 모두에다가 TraceId 를 죄다 전달해주도록 코드를 수정해야함");
+
         return new TraceStatus(traceId, startTimeMs, message);
     }
 
