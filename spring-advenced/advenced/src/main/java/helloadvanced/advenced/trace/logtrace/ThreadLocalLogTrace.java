@@ -4,8 +4,9 @@ import helloadvanced.advenced.trace.TraceId;
 import helloadvanced.advenced.trace.TraceStatus;
 import lombok.extern.slf4j.Slf4j;
 
+//@todo 버그가 있는거같은데 어제 잠을 덜자서 못찾겠다..
 @Slf4j
-public class ThreadLocalLogTrace implements LogTraceDong {
+public class ThreadLocalLogTrace implements LogTrace {
 
     private static final String START_PREFIX = "-->";
     private static final String COMPLETE_PREFIX = "<--";
@@ -29,6 +30,16 @@ public class ThreadLocalLogTrace implements LogTraceDong {
         return new TraceStatus(traceId, startTimeMs, message);
     }
 
+    public void syncTraceId() {
+        TraceId traceId = traceIdHolder.get();
+        if (traceId == null) {
+            //널, 없으면 새로운값 넣어줌
+            traceIdHolder.set(new TraceId());
+        } else {
+            //널이 아니면 넥스트로
+            traceIdHolder.set(traceId.createNextId());
+        }
+    }
 
     static String addSpace(String prefix, int level) {
         StringBuilder builder = new StringBuilder();
@@ -38,16 +49,6 @@ public class ThreadLocalLogTrace implements LogTraceDong {
         return builder.toString();
     }
 
-
-    @Override
-    public void syncTraceId() {
-        TraceId traceId = traceIdHolder.get();
-        if (traceId == null) {
-            traceIdHolder.set(new TraceId());
-        } else {
-            traceIdHolder.set(traceId.createNextId());
-        }
-    }
 
 
     public void complete(TraceStatus status, Exception e) {
@@ -72,11 +73,10 @@ public class ThreadLocalLogTrace implements LogTraceDong {
         releaseTraceId();
     }
 
-    @Override
     public void releaseTraceId() {
         TraceId traceId = traceIdHolder.get();
         if (traceId.isFirstLevel()) {
-            // 첫번째 레벨이라면 - 제거
+            // 첫번째 레벨이라면 - 제거, 해당 쓰레드로컬에 저장한 데이터가 제거됨
             traceIdHolder.remove();
             //@ todo : 이거 중요한게 쓰레드로컬은 다 쓰면 항상 제거해줘야 한다
         } else {

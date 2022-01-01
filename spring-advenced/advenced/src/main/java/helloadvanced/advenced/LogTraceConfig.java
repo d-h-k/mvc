@@ -1,6 +1,5 @@
 package helloadvanced.advenced;
 
-import helloadvanced.advenced.trace.logtrace.FieldLogTrace;
 import helloadvanced.advenced.trace.logtrace.LogTrace;
 import helloadvanced.advenced.trace.logtrace.ThreadLocalLogTrace;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +12,8 @@ public class LogTraceConfig {
     public LogTrace logTrace() {
         //return new FieldLogTrace();
         return new ThreadLocalLogTrace();
+        // 이것이 스프링의 예술적인 부분, 클라이언트를 변경하지않고 OCP 를 지키면서 바꿀 수 있다!! 스프링 짱인듯
     }
+
 
 }
