@@ -2,6 +2,7 @@ package helloadvanced.advenced;
 
 import helloadvanced.advenced.trace.logtrace.FieldLogTrace;
 import helloadvanced.advenced.trace.logtrace.LogTrace;
+import helloadvanced.advenced.trace.logtrace.ThreadLocalLogTrace;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +11,8 @@ public class LogTraceConfig {
 
     @Bean
     public LogTrace logTrace() {
-        return new FieldLogTrace();
+        //return new FieldLogTrace();
+        return new ThreadLocalLogTrace();
     }
 
 }
