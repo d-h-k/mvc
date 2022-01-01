@@ -19,7 +19,7 @@ public class OrderServiceV3 {
         TraceStatus status = null;
 
         try {
-            log.info("v3 서비스");
+            log.debug("v3 서비스");
             status = trace.begin("OrderServiceV3.orderItem()");
             orderRepository.save(itemId);
             trace.end(status);
