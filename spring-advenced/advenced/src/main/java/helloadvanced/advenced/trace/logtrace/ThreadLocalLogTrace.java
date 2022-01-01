@@ -44,11 +44,10 @@ public class ThreadLocalLogTrace implements LogTrace {
     static String addSpace(String prefix, int level) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < level; i++) {
-            builder.append((i == level - 1) ? "|" + prefix : "|  ");
+            builder.append((i == level - 1) ? "|" + prefix : "| ");
         }
         return builder.toString();
     }
-
 
 
     public void complete(TraceStatus status, Exception e) {
@@ -87,7 +86,7 @@ public class ThreadLocalLogTrace implements LogTrace {
 
     @Override
     public void end(TraceStatus status) {
-        complete(status,null);
+        complete(status, null);
     }
 
 
