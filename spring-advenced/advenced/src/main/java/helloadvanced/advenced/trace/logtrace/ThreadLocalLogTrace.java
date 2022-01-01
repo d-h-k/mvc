@@ -64,7 +64,7 @@ public class ThreadLocalLogTrace implements LogTrace {
         } else {
             log.info("EX:[{}] {},{} time={}ms ex={}",
                      traceId.getId(),
-                     addSpace(COMPLETE_PREFIX, traceId.getLevel()),
+                     addSpace(EX_PREFIX, traceId.getLevel()),
                      status.getMessage(),
                      resultTime,
                      e.toString());

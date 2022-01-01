@@ -12,8 +12,8 @@ public class TraceId {
      */
 
 
-    private String id;
-    private int level;
+    private final String id;
+    private final int level;
 
     //public Constructor
     public TraceId() {
