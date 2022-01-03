@@ -15,6 +15,7 @@ public class OrderServiceV4 {
     private final LogTrace trace;
 
     public void orderItem(String itemId) {
+        log.info("OrderServiceV4.orderItem() 호출");
         AbstractTemplate<Void> template = new AbstractTemplate<>(trace) {
             @Override
             protected Void call() {
@@ -22,6 +23,9 @@ public class OrderServiceV4 {
                 return null;
             }
         };
+
+        //이거 안적으면 동작안함
+        template.execute("OrderServiceV4.orderItem() 호출");
     }
 }
 
