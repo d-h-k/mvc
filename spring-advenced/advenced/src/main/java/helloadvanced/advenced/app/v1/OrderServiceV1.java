@@ -16,7 +16,7 @@ public class OrderServiceV1 {
     public void orderItem(String itemId) {
         orderRepository.save(itemId);
     }
-    // @todo : 스터디 시간에 설명할 코드 2
+    // @todo W1 : 스터디 시간에 설명할 코드 2
     - 엄청나게 지저분해진다
 
      */

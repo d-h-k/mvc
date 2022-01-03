@@ -33,7 +33,7 @@ public class OrderControllerV2 {
             trace.exception(status, e);
             throw e;
         }
-        /* @todo : v2 의미
+        /* @todo W2 : v2 의미
         1) 요구사항중 메서드 호출의 깊이를 표현하고, 같은 HTTP 요청은 같은 ID 를 남기도록
           - 직전 로그의 depth 와 ID를 받아야 가능하다
           - 로그별로 ID & Depth Level 을 전달하도록 수정하자

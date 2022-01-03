@@ -30,7 +30,7 @@ public class OrderControllerV1 {
             trace.exception(status,e);
             throw e;
         }
-        /* @todo : 스터디때 발표할것
+        /* @todo W1 : 스터디때 발표할것
         이 코드의 문제
         1) 일단 try-catch 문이 예외를 먹어버리는 문제가 있어서 >> 예외를 다시 던저줘야 한다
             - 요구사항 중에 어플리케이션 흐름이 바뀌는 문제가 있다

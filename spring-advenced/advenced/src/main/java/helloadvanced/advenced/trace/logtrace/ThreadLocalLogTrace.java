@@ -4,7 +4,7 @@ import helloadvanced.advenced.trace.TraceId;
 import helloadvanced.advenced.trace.TraceStatus;
 import lombok.extern.slf4j.Slf4j;
 
-//@todo 버그가 있는거같은데 어제 잠을 덜자서 못찾겠다..
+//@todo W3 버그가 있는거같은데 질문올림 : https://www.inflearn.com/questions/382399
 @Slf4j
 public class ThreadLocalLogTrace implements LogTrace {
 
@@ -77,7 +77,7 @@ public class ThreadLocalLogTrace implements LogTrace {
         if (traceId.isFirstLevel()) {
             // 첫번째 레벨이라면 - 제거, 해당 쓰레드로컬에 저장한 데이터가 제거됨
             traceIdHolder.remove();
-            //@ todo : 이거 중요한게 쓰레드로컬은 다 쓰면 항상 제거해줘야 한다
+            //todo W2 : 이거 중요한게 쓰레드로컬은 다 쓰면 항상 제거해줘야 한다
         } else {
             // 첫번째 레벨이 아니라면 - 이전Id SET
             traceIdHolder.set(traceId.createPreviousId());
