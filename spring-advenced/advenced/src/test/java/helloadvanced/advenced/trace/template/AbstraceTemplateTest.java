@@ -7,10 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @Slf4j
-class TemplateMethodTest {
+class AbstraceTemplateTest {
 
     @Test
     @DisplayName("V0 - templateMethod 적용하기 전 함수로 작성한 코드")
@@ -47,7 +45,7 @@ class TemplateMethodTest {
 
 
     @Test
-    @DisplayName("V1 - templateMethod 메서드 패턴을 적용")
+    @DisplayName("V1 - templateMethod 패턴을 적용")
     public void templateMethodV1() {
         //given
         AbstractTemplate template1 = new SubClassLogic1();
@@ -70,4 +68,32 @@ class TemplateMethodTest {
         log.info(lesson);
     }
 
+
+    // ==============================================================
+    // ==============================================================
+
+    @Test
+    @DisplayName("V2 - 익명 내부 클래스 방식으로 구현해서 템플릿메서드 + 응집력 높은 코드 를 구현")
+    public void templateMethodV2() {
+
+        AbstractTemplate template1 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비지니스 로직1");
+            }
+        };
+        template1.execute();
+
+
+        AbstractTemplate template2 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비지니스 로직2");
+            }
+        };
+        template2.execute();
+
+        log.info("응집력 높다는건 내 생각인데, 이게 함수 따로 분리해놓으니까 찾아다니면서 불편함. 즉석에서 필요한 부분만 오버라이드 해서 쓰니까 연관된 코드가 모여있어서 편하다고 생각함");
+
+    }
 }
