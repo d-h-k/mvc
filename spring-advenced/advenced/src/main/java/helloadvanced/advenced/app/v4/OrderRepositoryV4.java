@@ -1,6 +1,5 @@
 package helloadvanced.advenced.app.v4;
 
-import helloadvanced.advenced.trace.TraceStatus;
 import helloadvanced.advenced.trace.logtrace.LogTrace;
 import helloadvanced.advenced.trace.template.AbstractTemplate;
 import lombok.RequiredArgsConstructor;

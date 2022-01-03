@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static helloadvanced.advenced.app.v4.OrderControllerV4.lessonV4_templateMethodTip;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -23,6 +25,8 @@ public class OrderServiceV4 {
                 return null;
             }
         };
+
+        log.info(lessonV4_templateMethodTip);
 
         //이거 안적으면 동작안함
         template.execute("OrderServiceV4.orderItem() 호출");
