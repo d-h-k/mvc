@@ -2,9 +2,12 @@ package helloadvanced.advenced.trace.strategy;
 
 import helloadvanced.advenced.trace.strategy.code.Strategy;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 @Slf4j
 public class ContextV1 {
+
     private Strategy strategy;
 
     public ContextV1(Strategy strategy) {
@@ -41,5 +44,52 @@ public class ContextV1 {
                          "패턴");
     }
 
+
+    @Test
+    @DisplayName("strategyTestV3 - 전략 패턴을 익명내부클래스로")
+    public void strategyTestV3() {
+
+        ContextV1 context1 = new ContextV1(new Strategy() {
+            @Override
+            public void call() {
+                log.info("비지니스 로직 1 실행");
+            }
+        });
+        context1.execute();
+
+
+        ContextV1 context2 = new ContextV1(new Strategy() {
+            @Override
+            public void call() {
+                log.info("비지니스 로직 2 실행");
+            }
+        });
+        context2.execute();
+
+    }
+
+    @Test
+    @DisplayName("strategyTestV4 - 전략패턴을 람다로 주입")
+    public void test() {
+        ContextV1 contextV11 = new ContextV1(() -> log.info("비지니스 로직 1 실행"));
+        contextV11.execute();
+
+        ContextV1 contextV12 = new ContextV1(() -> log.info("비지니스 로직 2 실행"));
+        contextV12.execute();
+
+        /* 합본교얀 95페이지 정리
+
+        ## 전략패턴을 사용해서, 코드를 개선해봤음
+        - 이번 전략패턴에서는 템플릿 메서드 패턴의 장점인 변하는것과 변화하지 않는걸 분리해서 중복을 제거하면서도 상속을 사용하지 않아서 깔끔하다
+          - 상속을 사용하지 않아 깔끔 - 클래스를 안만들어도 되고,
+        - 전략패턴은 상속이아니라 인터페이스를 사용하는데, 변하지 않는 부분을 Context 에 두고 변하는 부분을 Strategy 를 구현해서 만든다
+        - 내부 필드의 인터페이스 Strategy 에 어떤 전략을 사용할지 주입해서 사용
+
+
+        ## 스프링프레임워크도 전략패턴을 사용하는데,ㄹ
+
+
+         */
+    }
 
 }

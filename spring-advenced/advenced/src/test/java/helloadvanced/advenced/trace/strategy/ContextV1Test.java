@@ -111,15 +111,4 @@ public class ContextV1Test {
         context2.execute();
     }
 
-    @Test
-    @DisplayName("strategyV3 - 전략 패턴 ")
-    public void test() {
-        //given
-
-        //when
-
-        //then
-        throw new AssertionError();
-
-    }
 }
